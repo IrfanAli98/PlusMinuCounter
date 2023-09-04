@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:id="@+id/llBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FFC107"
+        >
+
+        <ImageView
+            android:id="@+id/ivIcon1"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/decrease" />
+        <EditText
+            android:id="@+id/etCount"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_toRightOf="@id/ivIcon1"
+            android:layout_centerVertical="true"
+            android:background="@color/white"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:maxLength="5"
+            android:maxLines="1"
+            android:singleLine="true"
+            />
+
+        <ImageView
+            android:id="@+id/ivIcon2"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@id/etCount"
+            android:src="@drawable/plus" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
