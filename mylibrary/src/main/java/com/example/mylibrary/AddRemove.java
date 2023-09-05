@@ -1,6 +1,7 @@
 package com.example.mylibrary;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,8 @@ public class AddRemove extends LinearLayout {
     private ImageView ivPlus;
     private ImageView ivMinus;
     private TextView etCount;
+    private LinearLayout llBg;
+
 
     public AddRemove(Context context) {
         super(context);
@@ -42,13 +45,21 @@ public class AddRemove extends LinearLayout {
         ivPlus = (ImageView) v.findViewById(R.id.ivIcon2);
         ivMinus = (ImageView) v.findViewById(R.id.ivIcon1);
         etCount = (EditText) v.findViewById(R.id.etCount);
+        llBg = (LinearLayout) v.findViewById(R.id.llBg);
+
         ivPlus.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                int count  = Integer.parseInt(etCount.getText().toString());
-                if(count>=0){
-                    int newCount = count+1;
-                    etCount.setText(String.valueOf(newCount));
+                try {
+                    int count  = Integer.parseInt(etCount.getText().toString());
+                    if(TextUtils.isEmpty(etCount.getText().toString())){
+
+                    }else if(count>=0){
+                        int newCount = count+1;
+                        etCount.setText(String.valueOf(newCount));
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
                 }
             }
         });
@@ -63,5 +74,29 @@ public class AddRemove extends LinearLayout {
             }
         });
     }
-
+    public void setCountColor(int color){
+        etCount.setTextColor(getResources().getColor(color));
+    }
+    public void setCountSize(float size){
+        etCount.setTextSize(size);
+    }
+    public void setCountWidth(int width){
+        etCount.setWidth(width);
+    }
+    public void setCountHeight(int height){
+        etCount.setHeight(height);
+    }
+    public void setFont(float size){
+        etCount.setTextSize(size);
+    }
+    public void setPlusSize(int height, int width){
+        ivPlus.setMaxHeight(height);
+        ivPlus.setMaxWidth(width);
+    } public void setMinusSize(int height, int width){
+        ivMinus.setMaxHeight(height);
+        ivMinus.setMaxWidth(width);
+    }
+    public void setBackground(int color){
+        llBg.setBackgroundColor(getResources().getColor(color));
+    }
 }
